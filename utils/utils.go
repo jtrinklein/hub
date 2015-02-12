@@ -55,6 +55,17 @@ func searchBrowserLauncher(goos string) (browser string) {
 	return browser
 }
 
+func getNewlineForOs(goos string) (newline string) {
+	switch goos {
+		case "windows":
+			newline = "\r\n"
+		default:
+			newline = "\n"
+	}
+
+	return newline
+}
+
 func DirName() (string, error) {
 	dir, err := os.Getwd()
 	if err != nil {

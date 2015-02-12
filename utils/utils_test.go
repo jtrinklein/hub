@@ -16,3 +16,13 @@ func TestSearchBrowserLauncher(t *testing.T) {
 func TestConcatPaths(t *testing.T) {
 	assert.Equal(t, "foo/bar/baz", ConcatPaths("foo", "bar", "baz"))
 }
+
+func TestNewlineForOsIsCorrect(t *testing.T) {
+	newline := getNewlineForOs("windows")
+
+	assert.Equal(t, newline, "\r\n")
+
+	newline = getNewlineForOs("darwin")
+
+	assert.Equal(t, newline, "\n")
+}
