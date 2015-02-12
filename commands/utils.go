@@ -94,7 +94,9 @@ func getTitleAndBodyFromFlags(messageFlag, fileFlag string) (title, body string,
 }
 
 func readMsg(msg string) (title, body string) {
-	split := strings.SplitN(msg, "\n\n", 2)
+	newline := utils.Newline()
+	seperator := newline + newline
+	split := strings.SplitN(msg, seperator, 2)
 	title = strings.TrimSpace(split[0])
 	if len(split) > 1 {
 		body = strings.TrimSpace(split[1])
